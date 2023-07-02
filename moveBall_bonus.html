@@ -1,0 +1,100 @@
+
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:rgb(167, 190, 211)"></div>
+
+<div id="ball2" style="
+  z-index:4;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  background:rgb(255, 202, 175)"></div>
+
+
+
+
+<script>
+
+var velocityX = 5;
+var velocityY = 3;
+var positionX = 0;
+var positionY = 0;
+var ball = document.getElementById('ball');
+
+
+var velocityX2 = 4;
+var velocityY2 = 2;
+var positionX2 = 0;
+var positionY2 = 0;
+var ball2 = document.getElementById('ball2');
+
+// YOUR CODE 
+// ----------------
+
+function moveBall(){
+  positionX = positionX + velocityX;
+  ball.style.left = positionX + 'px';
+  positionY = positionY + velocityY;
+  ball.style.top = positionY + 'px';
+  
+  if(positionX >= 650){
+    velocityX = -5;
+    ball.style.background ='rgb(198, 226, 223)';
+  } else if (positionX <= 0){
+    velocityX = 5;
+    ball.style.background ='rgb(167, 190, 211)';
+  }
+
+  if(positionY >= 350){
+    velocityY = -5;
+    ball.style.background ='rgb(241, 255, 196)';
+  } else if (positionY <= 0){
+    velocityY = 5;
+    ball.style.background ='rgb(255, 202, 175)';
+  }
+
+  setTimeout(moveBall, 10);
+
+}
+
+function moveBall2(){
+  positionX2 = positionX2 + velocityX2;
+  ball2.style.left = positionX2 + 'px';
+  positionY2 = positionY2 + velocityY2;
+  ball2.style.top = positionY2 + 'px';
+  
+  if(positionX2 >= 500){
+    velocityX2 = -4;
+    ball2.style.background ='rgb(255, 202, 175)';
+  } else if (positionX2 <= 0){
+    velocityX2 = 4;
+    ball2.style.background ='rgb(241, 255, 196)';
+  }
+
+  if(positionY2 >= 200){
+    velocityY2 = -4;
+    ball2.style.background ='rgb(167, 190, 211)';
+  } else if (positionY2 <= 0){
+    velocityY2 = 4;
+    ball2.style.background ='rgb(198, 226, 223)';
+  }
+
+  setTimeout(moveBall2, 10);
+
+};
+
+moveBall();
+moveBall2();
+
+
+
+</script>

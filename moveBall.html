@@ -1,0 +1,40 @@
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:green"></div>
+
+<script>
+
+var velocity = 5;
+var position = 0;
+var ball = document.getElementById('ball');
+
+// YOUR CODE 
+// ----------------
+
+function moveBall(){
+  position = position + velocity;
+  ball.style.left = position + 'px';
+  
+  if(position >= 300){
+    velocity = -5;
+  } else if (position <= 0){
+    velocity = 5;
+  }
+
+  console.log("position: " + position);
+  console.log("velocity: " + velocity);
+
+  setTimeout(moveBall, 10);
+
+};
+
+moveBall();
+
+
+</script>
